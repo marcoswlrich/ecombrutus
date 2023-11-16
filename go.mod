@@ -3,6 +3,7 @@ module github.com/marcoswlrich/ecombrutus
 go 1.21.3
 
 require (
+	github.com/aws/aws-lambda-go v1.41.0 // indirect
 	github.com/aws/aws-sdk-go-v2 v1.23.0 // indirect
 	github.com/aws/aws-sdk-go-v2/config v1.25.1 // indirect
 	github.com/aws/aws-sdk-go-v2/credentials v1.16.1 // indirect
