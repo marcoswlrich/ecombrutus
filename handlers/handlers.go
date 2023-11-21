@@ -7,6 +7,7 @@ import (
 	"github.com/aws/aws-lambda-go/events"
 
 	"github.com/marcoswlrich/ecombrutus/auth"
+	"github.com/marcoswlrich/ecombrutus/routers"
 )
 
 func Handlers(
@@ -99,6 +100,11 @@ func ProcessCategory(
 	id int,
 	request events.APIGatewayV2HTTPRequest,
 ) (int, string) {
+	switch method {
+	case "POST":
+		return routers.InsertCategory(body, user)
+	}
+
 	return 400, "Metodo invalido"
 }
 
