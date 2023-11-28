@@ -24,12 +24,12 @@ type TokenJSON struct {
 func ValidateToken(token string) (bool, error, string) {
 	parts := strings.Split(token, ".")
 
-	if len(parts) != 3 {
+	if len(parts) < 2 {
 		fmt.Println("Token invalido ")
 		return false, nil, "Token invalido"
 	}
 
-	userInfo, err := base64.StdEncoding.DecodeString(parts[1])
+	userInfo, err := base64.RawStdEncoding.DecodeString(parts[1])
 	if err != nil {
 		fmt.Println("Nao foi possivel decodificar o Token: ", err.Error())
 		return false, err, err.Error()
@@ -51,5 +51,5 @@ func ValidateToken(token string) (bool, error, string) {
 		return false, err, "Token expirado !!"
 	}
 
-	return true, nil, string(tkj.Username)
+	return true, nil, tkj.Username
 }

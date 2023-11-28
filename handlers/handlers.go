@@ -27,8 +27,6 @@ func Handlers(
 		return statusCode, user
 	}
 
-	fmt.Println("path[0:4] = " + path[0:4])
-
 	switch path[0:4] {
 	case "user":
 		return ProcessUsers(body, path, method, user, id, request)
